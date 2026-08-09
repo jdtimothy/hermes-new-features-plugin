@@ -41,10 +41,11 @@ test('unexplored cards use the elevated surface while explored cards use the dar
   assert.match(source, /:\s*'border-\(--ui-stroke-strong\) bg-\(--ui-bg-tertiary\)/);
 });
 
-test('release badges use an elevated theme accent treatment', async () => {
+test('release badges use an accent-filled surface with non-accent text', async () => {
   const source = await readFile(new URL('../plugin.js', import.meta.url), 'utf8');
 
-  assert.match(source, /className:\s*'shrink-0 bg-\(--ui-accent-muted\) text-\(--ui-accent\)'/);
+  assert.match(source, /className:\s*'shrink-0 bg-\(--ui-accent\) text-\(--ui-text-primary\)'/);
+  assert.doesNotMatch(source, /className:\s*'shrink-0 bg-\(--ui-accent-muted\) text-\(--ui-accent\)'/);
 });
 
 test('plugin is plain ESM with only supported runtime imports', async () => {
