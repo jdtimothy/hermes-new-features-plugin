@@ -14,6 +14,15 @@ test('plugin provides a theme-native new-features pane with persistent explorati
   assert.match(source, /explored/);
 });
 
+test('plugin registers a sidebar navigation item that opens its full page', async () => {
+  const source = await readFile(new URL('../plugin.js', import.meta.url), 'utf8');
+
+  assert.match(source, /SIDEBAR_NAV_AREA/);
+  assert.match(source, /ROUTES_AREA/);
+  assert.match(source, /path:\s*'\/hermes-new-features'/);
+  assert.match(source, /label:\s*'What’s new'/);
+});
+
 test('plugin is plain ESM with only supported runtime imports', async () => {
   const source = await readFile(new URL('../plugin.js', import.meta.url), 'utf8');
   const imports = [...source.matchAll(/^import\s+.*?from\s+['"]([^'"]+)['"];?$/gm)].map((match) => match[1]);

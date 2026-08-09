@@ -1,4 +1,4 @@
-import { host } from '@hermes/plugin-sdk';
+import { host, ROUTES_AREA, SIDEBAR_NAV_AREA } from '@hermes/plugin-sdk';
 import { useEffect, useState } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
 
@@ -157,6 +157,24 @@ export default {
         width: '320px',
       },
       render: () => jsx(NewFeaturesPane, { ctx }),
+    });
+
+    ctx.register({
+      id: 'hermes-new-features.page',
+      area: ROUTES_AREA,
+      data: { path: '/hermes-new-features' },
+      render: () => jsx(NewFeaturesPane, { ctx }),
+    });
+
+    ctx.register({
+      id: 'hermes-new-features.nav',
+      area: SIDEBAR_NAV_AREA,
+      order: 60,
+      data: {
+        path: '/hermes-new-features',
+        label: 'What’s new',
+        codicon: 'sparkle',
+      },
     });
 
     host.logs('info', 'Hermes New Features plugin registered');
