@@ -83,7 +83,7 @@ function FeatureCard({ feature, release, explored, onExplore }) {
           }),
           jsx(Badge, {
             variant: 'outline',
-            className: 'shrink-0 bg-(--ui-accent) text-(--ui-text-primary)',
+            className: 'shrink-0 bg-(--ui-accent) text-(--ui-accent-foreground)',
             children: release,
           }),
         ],
