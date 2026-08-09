@@ -34,6 +34,13 @@ test('plugin uses a compact native dashboard card system instead of inline card 
   assert.doesNotMatch(source, /const styles\s*=/);
 });
 
+test('unexplored cards use the elevated surface while explored cards use the darker resting surface', async () => {
+  const source = await readFile(new URL('../plugin.js', import.meta.url), 'utf8');
+
+  assert.match(source, /explored\s*\?\s*'border-\(--ui-stroke-secondary\) bg-\(--ui-bg-secondary\)/);
+  assert.match(source, /:\s*'border-\(--ui-stroke-strong\) bg-\(--ui-bg-tertiary\)/);
+});
+
 test('plugin is plain ESM with only supported runtime imports', async () => {
   const source = await readFile(new URL('../plugin.js', import.meta.url), 'utf8');
 

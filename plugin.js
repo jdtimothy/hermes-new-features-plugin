@@ -66,7 +66,7 @@ function FeatureCard({ feature, release, explored, onExplore }) {
       'group flex min-h-48 flex-col rounded-lg border p-4 transition-colors',
       explored
         ? 'border-(--ui-stroke-secondary) bg-(--ui-bg-secondary) opacity-65 hover:bg-(--ui-bg-tertiary) hover:opacity-100'
-        : 'border-(--ui-stroke-strong) bg-(--ui-bg-secondary) hover:bg-(--ui-bg-tertiary)'
+        : 'border-(--ui-stroke-strong) bg-(--ui-bg-tertiary)'
     ),
     children: [
       jsxs('div', {
