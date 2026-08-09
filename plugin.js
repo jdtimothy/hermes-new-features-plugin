@@ -200,7 +200,7 @@ function NewFeaturesPage() {
     className: 'flex h-full min-h-0 flex-col',
     children: [
       jsxs('header', {
-        className: 'border-b border-(--ui-stroke-secondary) px-6 py-5',
+        className: 'border-b border-(--ui-stroke-secondary) bg-(--ui-bg-tertiary) px-6 py-5',
         children: [
           jsxs('div', {
             className: 'flex items-start justify-between gap-5',

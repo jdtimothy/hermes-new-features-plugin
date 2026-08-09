@@ -47,6 +47,12 @@ test('release badges use an accent-filled surface with accent-foreground text', 
   assert.match(source, /className:\s*'shrink-0 bg-\(--ui-accent\) text-\(--ui-accent-foreground\)'/);
 });
 
+test('dashboard header uses an elevated theme surface for depth', async () => {
+  const source = await readFile(new URL('../plugin.js', import.meta.url), 'utf8');
+
+  assert.match(source, /className:\s*'border-b border-\(--ui-stroke-secondary\) bg-\(--ui-bg-tertiary\) px-6 py-5'/);
+});
+
 test('plugin is plain ESM with only supported runtime imports', async () => {
   const source = await readFile(new URL('../plugin.js', import.meta.url), 'utf8');
 
